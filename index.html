@@ -9,32 +9,28 @@
     <script> 
         let log = console.log;
         function getComputerChoice (){
-            let choiceNumber = Math.floor(Math.random() * 100) + 1;
-            let computerChoice
-            if (choiceNumber <= 33) {
-                computerChoice = "piedra";
-            } else if (choiceNumber > 67){
-                computerChoice = "tijera";
-            } else {
-                computerChoice = "papel";
+            let Number = Math.floor(Math.random() * 100) + 1;
+            let choice;
+            if (Number <= 33){
+                choice = "piedra";
+            } else if (Number > 67){
+                choice = "tijera";
+            } else{
+                choice = "papel";
             }
-            log("La computadora elige : " + computerChoice);
-            return computerChoice;
+            log("Computadora : " + choice);
+            return choice;
         }
-        /*for (let index = 0; index < 100; index++) {
-            getComputerChoice();          
-        }*/
-        function getHumanChoice (){
-            let humanChoice;
+        function getHumanChoice () {
+            let choice;
             do {
-                humanChoice = prompt("Eliga piedra, papel o tijera");
-                humanChoice = humanChoice.trim();
-                humanChoice = humanChoice.toLowerCase();
-            } while ((humanChoice != "piedra") && (humanChoice != "papel") && (humanChoice != "tijera"));
-            log("Usted eligio : " + humanChoice);
-            return humanChoice;
+                choice = prompt("Eliga piedra, papel o tijera");
+                choice = choice.trim();
+                choice = choice.toLowerCase();
+            } while ((choice != "piedra") && (choice != "papel") && (choice != "tijera"));
+            log("Jugador : " + choice);
+            return choice;
        }
-       //getHumanChoice();
        function playGame () {
            let humanScore = 0;
            let computerScore = 0;
@@ -42,46 +38,46 @@
                switch (computerChoice) {
                    case "piedra":
                        if (humanChoice == "piedra") {
-                           log("Empataron, los dos eligieron " + humanChoice);
+                           //log("Empataron, los dos eligieron " + humanChoice);
                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
                         } else if (humanChoice == "papel") {
-                            log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
+                            //log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
                             humanScore++;
                             log("Jugador " + humanScore + " - " + computerScore + " Computadora");
                         } else {
-                            log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
+                            //log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
                             computerScore++;
                             log("Jugador " + humanScore + " - " + computerScore + " Computadora");
                         }
                         break;
-                        case "papel":
-                            if (humanChoice == "piedra") {
-                                log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
-                                computerScore++;
-                                log("Jugador " + humanScore + " - " + computerScore + " Computadora");
-                            } else if (humanChoice == "papel") {
-                                log("Empataron, los dos eligieron " + humanChoice);
-                                log("Jugador " + humanScore + " - " + computerScore + " Computadora");
-                            } else {
-                                log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
-                                humanScore++;
-                                log("Jugador " + humanScore + " - " + computerScore + " Computadora");
-                            }
-                            break;
-                            case "tijera":
-                                if (humanChoice == "piedra") {
-                                    log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
-                                    humanScore++;
-                                    log("Jugador " + humanScore + " - " + computerScore + " Computadora");
-                       } else if (humanChoice == "papel") {
-                           log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
-                           computerScore++;
-                           log("Jugador " + humanScore + " - " + computerScore + " Computadora");
-                       } else {
-                           log("Empataron, los dos eligieron " + humanChoice);
-                           log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                    case "papel":
+                        if (humanChoice == "piedra") {
+                            //log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
+                            computerScore++;
+                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                        } else if (humanChoice == "papel") {
+                            //log("Empataron, los dos eligieron " + humanChoice);
+                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                        } else {
+                            // log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
+                            humanScore++;
+                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
                         }
-                        break;
+                    break;
+                    case "tijera":
+                        if (humanChoice == "piedra") {
+                            //log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
+                            humanScore++;
+                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                        } else if (humanChoice == "papel") {
+                            //log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
+                            computerScore++;
+                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                        } else {
+                            //log("Empataron, los dos eligieron " + humanChoice);
+                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                            }
+                    break;
                     }
            }
            for (let i = 1; i <= 5; i++) {
