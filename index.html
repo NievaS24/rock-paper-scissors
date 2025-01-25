@@ -10,20 +10,29 @@
         let log = console.log;
         function getComputerChoice (){
             let choiceNumber = Math.floor(Math.random() * 100) + 1;
-            let choice
+            let computerChoice
             if (choiceNumber <= 33) {
-                choice = "Rock";
+                computerChoice = "Piedra";
             } else if (choiceNumber > 67){
-                choice = "Scissors";
+                computerChoice = "Tijeras";
             } else {
-                choice = "Paper";
+                computerChoice = "Papel";
             }
-            log(choice);
+            //log(computerChoice);
         }
         /*for (let index = 0; index < 100; index++) {
             getComputerChoice();          
         }*/
-       
+       function getHumanChoice (){
+            let humanChoice;
+            do {
+                humanChoice = prompt("Eliga piedra, papel o tijera");
+                humanChoice = humanChoice.trim();
+                humanChoice = humanChoice.toLowerCase();
+            } while ((humanChoice != "piedra") && (humanChoice != "papel") && (humanChoice != "tijera"));
+            //log(humanChoice);
+       }
+       //getHumanChoice();
     </script>
 </body>
 </html>
