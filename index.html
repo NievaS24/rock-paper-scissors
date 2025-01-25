@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Piedra Papel o Tijera</title>
 </head>
 <body>
     <script> 
@@ -12,27 +12,93 @@
             let choiceNumber = Math.floor(Math.random() * 100) + 1;
             let computerChoice
             if (choiceNumber <= 33) {
-                computerChoice = "Piedra";
+                computerChoice = "piedra";
             } else if (choiceNumber > 67){
-                computerChoice = "Tijeras";
+                computerChoice = "tijera";
             } else {
-                computerChoice = "Papel";
+                computerChoice = "papel";
             }
-            //log(computerChoice);
+            log("La computadora elige : " + computerChoice);
+            return computerChoice;
         }
         /*for (let index = 0; index < 100; index++) {
             getComputerChoice();          
         }*/
-       function getHumanChoice (){
+        function getHumanChoice (){
             let humanChoice;
             do {
                 humanChoice = prompt("Eliga piedra, papel o tijera");
                 humanChoice = humanChoice.trim();
                 humanChoice = humanChoice.toLowerCase();
             } while ((humanChoice != "piedra") && (humanChoice != "papel") && (humanChoice != "tijera"));
-            //log(humanChoice);
+            log("Usted eligio : " + humanChoice);
+            return humanChoice;
        }
        //getHumanChoice();
+       function playGame () {
+           let humanScore = 0;
+           let computerScore = 0;
+           function playRound (humanChoice, computerChoice){
+               switch (computerChoice) {
+                   case "piedra":
+                       if (humanChoice == "piedra") {
+                           log("Empataron, los dos eligieron " + humanChoice);
+                           log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                        } else if (humanChoice == "papel") {
+                            log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
+                            humanScore++;
+                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                        } else {
+                            log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
+                            computerScore++;
+                            log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                        }
+                        break;
+                        case "papel":
+                            if (humanChoice == "piedra") {
+                                log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
+                                computerScore++;
+                                log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                            } else if (humanChoice == "papel") {
+                                log("Empataron, los dos eligieron " + humanChoice);
+                                log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                            } else {
+                                log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
+                                humanScore++;
+                                log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                            }
+                            break;
+                            case "tijera":
+                                if (humanChoice == "piedra") {
+                                    log("Ganaste! " + humanChoice + " le gana a " + computerChoice);
+                                    humanScore++;
+                                    log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                       } else if (humanChoice == "papel") {
+                           log("Perdiste :( , " + computerChoice + " le gana a " + humanChoice);
+                           computerScore++;
+                           log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                       } else {
+                           log("Empataron, los dos eligieron " + humanChoice);
+                           log("Jugador " + humanScore + " - " + computerScore + " Computadora");
+                        }
+                        break;
+                    }
+           }
+           for (let i = 1; i <= 5; i++) {
+                log("INTENTO " + i);
+                const humanChoose = getHumanChoice();
+                const computerChoose = getComputerChoice();
+                playRound(humanChoose, computerChoose);
+            }
+            if (humanScore > computerScore) {
+                log("GANASTE " + humanScore + " a " + computerScore);
+            } else if (humanScore < computerScore) {
+                log("PERDISTE " + humanScore + " a " + computerScore);
+            } else {
+                log("EMPATARON " + humanScore + " a " + computerScore);
+            }
+        }
+        playGame();
     </script>
 </body>
 </html>
