@@ -1,4 +1,3 @@
-const log = console.log;
 let playerScore = 0;
 let computerScore = 0;
 const buttons = document.querySelector("#container");
