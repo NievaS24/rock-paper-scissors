@@ -1,0 +1,41 @@
+* {
+    border: 0;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    background-color: #000000CC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 10px;
+}
+
+#container button {
+    padding: 10px;
+    background-color: #0000ff80;
+    color: white;
+}
+
+#principal {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    padding: 100px;
+    background-color: #00000080;
+    color: white;
+}
+
+#principal div {
+    padding: 10px;
+}
